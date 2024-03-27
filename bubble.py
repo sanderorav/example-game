@@ -3,7 +3,7 @@ import random
 
 class Bubble(pygame.sprite.Sprite):
     
-    def __init__(self, screen, game_settings):
+    def __init__(self, screen, game_settings, stats):
         super(Bubble, self).__init__()
         self.screen = screen
         self.screen_rect = screen.get_rect()
@@ -23,7 +23,7 @@ class Bubble(pygame.sprite.Sprite):
                 random.randint(0, game_settings.screen_height),
                 )
             )
-        self.speed = random.randint(1, 5)
+        self.speed = random.randint(stats.min_speed, stats.max_speed)
         
     def blit_me(self):
         self.screen.blit(self.bubble, self.rect)
